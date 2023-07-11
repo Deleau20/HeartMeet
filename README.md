@@ -1,4 +1,4 @@
-#Application Web de Rencontres Amoureuses et Amicales
+# Application Web de Rencontres Amoureuses et Amicales
 
 Cette application web de rencontres amoureuses et amicales a été développée en utilisant Python avec le framework Flask, SQLAlchemy pour la gestion de la base de données et SQLite3 comme système de gestion de base de données.
 
