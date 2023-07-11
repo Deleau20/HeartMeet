@@ -27,7 +27,7 @@ Cette application web de rencontre amoureuse et amicale a été développée en 
 3. Créez un environnement virtuel.
 
    ```
-   python -m venv venv
+   python -m venv env
    ```
 
 4. Activez l'environnement virtuel.
@@ -35,13 +35,13 @@ Cette application web de rencontre amoureuse et amicale a été développée en 
    - Sur Windows :
 
      ```
-     venv\Scripts\activate
+     env\Scripts\activate
      ```
 
    - Sur macOS/Linux :
 
      ```
-     source venv/bin/activate
+     source env/bin/activate
      ```
 
 5. Installez les dépendances du projet.
