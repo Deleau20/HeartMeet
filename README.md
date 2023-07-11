@@ -32,7 +32,7 @@ Activez l'environnement virtuel.
 Sur Windows :
 env\Scripts\activate
 
-
+code
 Sur macOS/Linux :
 source env/bin/activate
 Installez les dépendances du projet.
