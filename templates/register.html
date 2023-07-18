@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <title>Register HeartMeet</title>
+</head>
+
+<body>
+
+    <!--===== CONTACT =====-->
+    <section class="contact section" id="contact">
+        <h2 class="section-title">Inscrivez-vous</h2>
+
+        <div class="contact__container bd-grid" id="contacts">
+            <form action="" class="contact__form">
+                <input type="text" placeholder="Nom" class="contact__input">
+                <input type="text" placeholder="Prénom" class="contact__input">
+                <input type="text" placeholder="Pseudo" class="contact__input">
+                <input type="date" placeholder="Date de naissance" class="contact__input">
+                <input type="text" placeholder="Ville" class="contact__input">
+                <input type="text" placeholder="Pays" class="contact__input">
+                <input type="text" placeholder="Profession" class="contact__input">
+                <h2>Votre genre :</h2>
+
+                <label>
+                    <input type="radio" name="genre" value="option1">
+                    Homme
+                </label>
+
+                <label>
+                    <input type="radio" name="genre" value="option2">
+                    Femme
+                </label><br><br>
+                <input type="email" placeholder="Email" class="contact__input">
+                <input type="password" placeholder="Mot de passe" class="contact__input">
+                <input type="button" value="Se connecter 
+                " class="contact__button button"><br>
+                <p>Vous avez déja un compte <a href="../templates/login.html">Ici</a></p>
+            </form>
+
+            <a href="../templates/index.html">
+                <h2 style="cursor: pointer;"><span
+                        style="font-size: 20px; font-weight: 600; color: pink;">Heart</span><span
+                        style="font-size: 20px; font-weight: 600; color: #3E6FF4;">Meet</span></h2>
+            </a>
+        </div>
+    </section>
+
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="../static/js//main.js"></script>
+</body>
+
+</html>
