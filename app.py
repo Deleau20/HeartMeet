@@ -62,24 +62,37 @@ def register():
 
     return render_template('login.html')
 
-# Connexion
+
+#connexion
 @app.route('/login', methods=['POST'])
 def login():
     if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
+        try:
+            email = request.form['email']
+            password = request.form['password']
 
-        # Vérifier si l'utilisateur existe dans la base de données
-        user = User.query.filter_by(email=email, password=password).first()
-        if user:
-            # Utilisateur trouvé, connecté avec succès
-            session['user_name'] = user.name  # Stocker le nom de l'utilisateur en session
-            return redirect(url_for('index'))
-        else:
-            # Utilisateur non trouvé ou mot de passe incorrect
-            return "Échec de la connexion. Vérifiez vos informations d'identification."
+            # Vérifier si les données du formulaire sont correctement soumises
+            print(f"Email soumis : {email}")
+            print(f"Mot de passe soumis : {password}")
+
+            # Vérifier si l'utilisateur existe dans la base de données
+            user = User.query.filter_by(email=email, password=password).first()
+
+            if user:
+                # Utilisateur trouvé, connecté avec succès
+                session['user_name'] = user.name  # Stocker le nom de l'utilisateur en session
+                return redirect(url_for('index'))
+            else:
+                # Utilisateur non trouvé ou mot de passe incorrect
+                return "Échec de la connexion. Vérifiez vos informations d'identification."
+        except KeyError as e:
+            return f"Erreur : Champ manquant dans le formulaire. Clé manquante : {e}"
+        except Exception as e:
+            return f"Erreur inattendue : {e}"
 
     return redirect(url_for('showlogin'))
+
+
 
 # Déconnexion
 @app.route('/logout')

@@ -12,13 +12,13 @@
 
     <!--===== LOGIN =====-->
     <div class="form-box">
-        <form class="form">
+        <form class="form" action="/login" method="POST">
             <span class="title">Connectez-vous</span>
             <div class="form-container">
-                    <input type="email" class="input" placeholder="Email">
-                    <input type="password" class="input" placeholder="Mot de passe">
+                    <input type="email" name="email" class="input" placeholder="Email">
+                    <input type="password" name="password" class="input" placeholder="Mot de passe">
             </div>
-            <button>Se connecter</button>
+            <button type="submit">Se connecter</button>
         </form>
         <div class="form-section">
           <p>Vous n'avez pas de compte ? <a href="{{ url_for('showregister') }}">Ici</a> </p>
