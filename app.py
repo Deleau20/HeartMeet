@@ -1,10 +1,13 @@
 from flask import Flask, request, redirect, url_for, render_template, session
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite3'
 app.config['SECRET_KEY'] = 'fred1234'
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
