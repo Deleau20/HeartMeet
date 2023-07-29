@@ -4,57 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/login.css">
+    <link rel="stylesheet" href="../static/css/register.css">
     <title>Register HeartMeet</title>
 </head>
 
 <body>
 
-    <!--===== CONTACT =====-->
-    <section class="contact section" id="contact">
-        <h2 class="section-title">Inscrivez-vous</h2>
-
-        <div class="contact__container bd-grid" id="contacts">
-            <form action="" class="contact__form">
-                <input type="text" placeholder="Nom" class="contact__input">
-                <input type="text" placeholder="Prénom" class="contact__input">
-                <input type="text" placeholder="Pseudo" class="contact__input">
-                <input type="date" placeholder="Date de naissance" class="contact__input">
-                <input type="text" placeholder="Ville" class="contact__input">
-                <input type="text" placeholder="Pays" class="contact__input">
-                <input type="text" placeholder="Profession" class="contact__input">
-                <h2>Votre genre :</h2>
-
-                <label>
-                    <input type="radio" name="genre" value="option1">
-                    Homme
-                </label>
-
-                <label>
-                    <input type="radio" name="genre" value="option2">
-                    Femme
-                </label><br><br>
-                <input type="email" placeholder="Email" class="contact__input">
-                <input type="password" placeholder="Mot de passe" class="contact__input">
-                <input type="button" value="Se connecter 
-                " class="contact__button button"><br>
-                <p>Vous avez déja un compte <a href="../templates/login.html">Ici</a></p>
-            </form>
-
-            <a href="../templates/index.html">
-                <h2 style="cursor: pointer;"><span
-                        style="font-size: 20px; font-weight: 600; color: pink;">Heart</span><span
-                        style="font-size: 20px; font-weight: 600; color: #3E6FF4;">Meet</span></h2>
-            </a>
+    <!--===== REGISTER =====-->
+    <div class="form-box">
+        <form class="form" action="/register" method="POST">
+            <span class="title">Inscrivez-vous</span>
+            <div class="form-container">
+                <input type="text" name="name" class="input" placeholder="Nom" required>
+                <input type="text" name="prenom" class="input" placeholder="Prenom" required>
+                <input type="email" name="email" class="input" placeholder="Email" required>
+                <input type="password" name="password" class="input" placeholder="Mot de passe" required>
+            </div>
+            <button type="submit">S'inscrire</button>
+        </form>
+        <div class="form-section">
+            <p>Vous avez déjà un compte ? <a href="{{ url_for('showlogin') }}">Ici</a> </p>
         </div>
-    </section>
-
-
+    </div>
     <!--===== SCROLL REVEAL =====-->
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--===== MAIN JS =====-->
-    <script src="../static/js//main.js"></script>
+    <script src="../static/js/main.js"></script>
 </body>
 
 </html>
