@@ -82,7 +82,7 @@ def login():
             if user:
                 # Utilisateur trouvé, connecté avec succès
                 session['user_name'] = user.name  # Stocker le nom de l'utilisateur en session
-                return redirect(url_for('index'))
+                return redirect(url_for('showlogin'))
             else:
                 # Utilisateur non trouvé ou mot de passe incorrect
                 return "Échec de la connexion. Vérifiez vos informations d'identification."
