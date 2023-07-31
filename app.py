@@ -61,6 +61,10 @@ def showregister():
 def showlogin():
     return render_template('login.html')
 
+@app.route('/showlist', methods=['GET', 'POST'])
+def showlist():
+    return render_template('voir.html')
+
 # Inscription
 @app.route('/register', methods=['POST'])
 def register():
@@ -177,7 +181,7 @@ def rencontrer():
             db.session.commit()
 
             flash("Données ajoutée avec succès à la base de données.", "success")
-            return redirect(url_for('rencontres'))
+            return redirect(url_for('showlist'))
         except Exception as e:
             flash(f"Erreur lors de l'ajout des données : {e}", "error")
             return redirect(url_for('rencontres'))
