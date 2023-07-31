@@ -19,7 +19,7 @@
         <nav class="nav bd-grid">
             <div>
                 <a href="#" class="nav__logo"><span
-                        style="font-size: 20px; font-weight: 600; color: pink;">Heart</span><span
+                        style="font-size: 20px; font-weight: 600; color: orange;">Heart</span><span
                         style="font-size: 20px; font-weight: 600; color: #3E6FF4;">Meet</span></a>
             </div>
 
@@ -28,12 +28,13 @@
                     <li class="nav__item"><a href="#home" class="nav__link active">Accueil</a></li>
                     <li class="nav__item"><a href="#about" class="nav__link">Apropos</a></li>
                     {% if 'user_name' in session %}
-                    <li class="nav__item"><a href="#skills" class="nav__link">Bienvenue, {{ session['user_name'] }}</a></li>
+                    <li class="nav__item"><a href="{{ url_for('rencontres') }}" class="nav__link">Rencontre</a></li>
+                    <li class="nav__item"><a href="" class="nav__link" style="color: #3E6FF4;"><span> </span> Bienvenue, {{ session['user_name'] }}</a></li>
                     <li class="nav__item"><a href="{{ url_for('logout') }}" class="nav__link">Déconnexion</a></li>
                     {% else %}
                     <li class="nav__item"><a href="{{ url_for('showlogin') }}" class="nav__link">Comptes</a></li>
-                    {% endif %}
                     <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    {% endif %}
                 </ul>
             </div>
 
@@ -49,9 +50,10 @@
             <div class="home__data">
                 <h1 class="home__title">Salut,<br>je suis <span class="home__title-color"> HeartMeet,</span><br> Ton
                     nouveau site web <br> de rencontre.</h1>
-
-                <a href="{{ url_for('showlogin') }}" class="button">Rencontrer</a>
+            
+                <a href="{{ url_for('rencontres') }}" class="button">Rencontrer</a>
             </div>
+            
 
             <!--=====<div class="home__social">
                     <a href="" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/rencontres.css">
+    <link rel="stylesheet" href="../static/css/voir.css">
+
+    <!-- =====BOX ICONS===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>HeartMeet</title>
+</head>
+
+<body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo"><span
+                        style="font-size: 20px; font-weight: 600; color: orange;">Heart</span><span
+                        style="font-size: 20px; font-weight: 600; color: #3E6FF4;">Meet</span></a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    {% if 'user_name' in session %}
+                    <li class="nav__item"><a href="{{url_for('index')}}" class="nav__link">Accueil</a></li>
+                    <li class="nav__item"><a href="{{url_for('list_rencontres')}}"
+                            class="nav__link active">Rencontrer</a></li>
+                    <li class="nav__item"><a href="{{ url_for('rencontres') }}" class="nav__link">Rencontre</a></li>
+                    <li class="nav__item"><a href="" class="nav__link" style="color: #3E6FF4;"><span> </span> Bienvenue,
+                            {{ session['user_name'] }}</a></li>
+                    <li class="nav__item"><a href="{{ url_for('logout') }}" class="nav__link">Déconnexion</a></li>
+                    {% else %}
+                    <li class="nav__item"><a href="{{ url_for('showlogin') }}" class="nav__link">Comptes</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <!--===== Liste de rencontres =====-->
+    <div class="containerent">
+        {% for rencontre in rencontres %}
+        <div class="card">
+            <div class="card-border-top"></div>
+            <div class="img">
+                <img src="{{ rencontre.image }}" alt="Image de la rencontre">
+            </div>
+            <span>{{ rencontre.nom }} {{ rencontre.prenom }}</span>
+            <p class="job">{{ rencontre.titre }}, {{ rencontre.ville }}</p>
+            <button>Click</button>
+        </div>
+        {% endfor %}
+    </div>    
+
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+        <p class="footer__title">Contact : +225 0777492212</p>
+        <div class="footer__social">
+            <a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
+            <a href="#" class="footer__icon"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
+        </div>
+        <p class="footer__copy">&#169; HeartMeet. Tous droits réservés</p>
+    </footer>
+
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="../static/js//main.js"></script>
+</body>
+
+</html>

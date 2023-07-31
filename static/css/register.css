@@ -95,3 +95,33 @@ body {
   .form button:hover {
     background-color: #005ce6;
   }
+
+  @media screen and (max-width: 320px) {
+    body {
+      background: antiquewhite;
+      background-image: url(../img/rencontre1.png);
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+  }
+  
+  @media screen and (min-width: 576px) {
+    body {
+      background: antiquewhite;
+      background-image: url(../img/rencontre1.png);
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+  }

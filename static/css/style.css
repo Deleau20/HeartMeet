@@ -246,7 +246,7 @@ img {
   color: #fff;
   padding: .75rem 2.5rem;
   font-weight: var(--font-semi);
-  border-radius: .5rem;
+  border-radius: .5rem white;
   transition: .3s;
 }
 

@@ -15,15 +15,25 @@
         <form class="form" action="/login" method="POST">
             <span class="title">Connectez-vous</span>
             <div class="form-container">
-                    <input type="email" name="email" class="input" placeholder="Email">
-                    <input type="password" name="password" class="input" placeholder="Mot de passe">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
+
+                <input type="email" name="email" class="input" placeholder="Email">
+                <input type="password" name="password" class="input" placeholder="Mot de passe">
             </div>
             <button type="submit">Se connecter</button>
         </form>
         <div class="form-section">
-          <p>Vous n'avez pas de compte ? <a href="{{ url_for('showregister') }}">Ici</a> </p>
+            <p>Vous n'avez pas de compte ? <a href="{{ url_for('showregister') }}">Ici</a> </p>
         </div>
-        </div>
+    </div>
 
 
     <!--===== SCROLL REVEAL =====-->

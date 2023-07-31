@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/rencontres.css">
+
+    <!-- =====BOX ICONS===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>HeartMeet</title>
+</head>
+
+<body>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#" class="nav__logo"><span
+                        style="font-size: 20px; font-weight: 600; color: orange;">Heart</span><span
+                        style="font-size: 20px; font-weight: 600; color: #3E6FF4;">Meet</span></a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    {% if 'user_name' in session %}
+                    <li class="nav__item"><a href="{{url_for('index')}}" class="nav__link">Accueil</a></li>
+                    <li class="nav__item"><a href="{{url_for('list_rencontres')}}" class="nav__link">Rencontrer</a></li>
+                    <li class="nav__item"><a href="{{ url_for('rencontres') }}" class="nav__link active">Rencontre</a>
+                    </li>
+                    <li class="nav__item"><a href="" class="nav__link" style="color: #3E6FF4;"><span> </span> Bienvenue,
+                            {{ session['user_name'] }}</a></li>
+                    <li class="nav__item"><a href="{{ url_for('logout') }}" class="nav__link">Déconnexion</a></li>
+                    {% else %}
+                    <li class="nav__item"><a href="{{ url_for('showlogin') }}" class="nav__link">Comptes</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <!--===== Formulaire de rencontre =====-->
+    <div class="containerss">
+        <form action="/rencontrer" class="form" method="post" id="locationForm" enctype="multipart/form-data">
+            <div style="display: flex; justify-content: flex-end; align-items: center;"></div>
+            <p class="title">Formulaire de rencontre</p>
+            <p class="message">
+                Détaillez vos informations pour que les autres puissent vous rencontrer
+            </p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+        
+            <label>
+                <input style="margin-top: 30px;"  required="" placeholder="" type="text" class="input" name="nom" value="{% if 'user_name' in session %}{{ session['user_name'] }}{% endif %}" />
+                <span>Votre Nom</span>
+            </label>
+        
+            <label>
+                <input style="margin-top: 30px;"  required="" placeholder="" type="text" class="input" name="prenom"/>
+                <span>Choisissez un Alias</span>
+            </label>
+        
+            <label>
+                <input style="margin-top: 30px;"  required="" placeholder="Type de rencontre" type="text" class="input" name="titre" />
+                <span>Amicales, Amoureuse, Professionnelles</span>
+            </label>
+            
+        
+            <label>
+                <input style="margin-top: 30px;"  type="file" class="inputimg" name="image" style="margin-top: 30px;" />
+            </label>
+        
+            <select style="margin-top: 30px;"  name="ville">
+                <option value="Choisissez votre ville de residence" selected>Choisissez votre ville de residence
+                </option>
+                <option value="Abidjan">Abidjan</option>
+                <option value="Yamoussoukro">Yamoussoukro</option>
+                <option value="Bouaké">Bouaké</option>
+                <option value="Daloa">Daloa</option>
+                <option value="San-Pédro">San-Pédro</option>
+                <option value="Divo">Divo</option>
+                <option value="Korhogo">Korhogo</option>
+            </select>
+        
+            <button type="submit" class="submit" value="Upload">Publier</button>
+        </form>
+        
+    </div>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+        <p class="footer__title">Contact : +225 0777492212</p>
+        <div class="footer__social">
+            <a href="#" class="footer__icon"><i class='bx bxl-facebook'></i></a>
+            <a href="#" class="footer__icon"><i class='bx bxl-instagram'></i></a>
+            <a href="#" class="footer__icon"><i class='bx bxl-twitter'></i></a>
+        </div>
+        <p class="footer__copy">&#169; HeartMeet. Tous droits réservés</p>
+    </footer>
+
+
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="../static/js//main.js"></script>
+</body>
+
+</html>
