@@ -1,9 +1,10 @@
 .containerent{
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     margin-top: 7rem;
     margin-bottom: 3rem;
+    width: 18rem;
 }
 
 .card {
