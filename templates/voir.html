@@ -50,18 +50,18 @@
 
     <!--===== Liste de rencontres =====-->
     <div class="containerent">
-        {% for rencontre in rencontres %}
         <div class="card">
-            <div class="card-border-top"></div>
-            <div class="img">
-                <img src="{{ rencontre.image }}" alt="Image de la rencontre">
+            <div class="card-border-top">
             </div>
-            <span>{{ rencontre.nom }} {{ rencontre.prenom }}</span>
-            <p class="job">{{ rencontre.titre }}, {{ rencontre.ville }}</p>
-            <button>Click</button>
+            <div class="img">
+                <img src="" alt="Image de l'utilisateur">
+            </div>
+            <span> Nom : </span>
+            <p class="job"> Recherche une rencontre, </p>
+            <button> J'aime
+            </button>
         </div>
-        {% endfor %}
-    </div>    
+    </div>
 
     <!--===== FOOTER =====-->
     <footer class="footer">

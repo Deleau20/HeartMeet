@@ -4,9 +4,6 @@ body {
     background-position: left;
     background-repeat: no-repeat;
     background-size: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0;
     font-family: 'Poppins', sans-serif;
   }
